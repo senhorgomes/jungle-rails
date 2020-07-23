@@ -7,7 +7,7 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
-  <h4>'Your Order Summary:'</h4>
+  <h4>Your Order Summary:</h4>
   <div class="panel panel-default items">
       <table class="table table-bordered">
         <thead>
@@ -19,9 +19,9 @@
           </tr>
         </thead>
         <tbody>
-        <% @ordered_items.each do |ordered_item| %>
-            <%= render 'item', product: item[:product], quantity: item[:quantity].to_i %>
-            <% end %>
+          <% @order.line_items.each do |line_item| %>
+            <%= render 'order', product: line_item.product, line_item: line_item %>
+          <% end %>
         </tbody>
         <tfoot>
           <tr>

@@ -30,6 +30,6 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate
-    http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
+    authenticate_with_http_basic { |user, password| user == ENV['ADMIN_USERNAME'] &&  password == ENV['ADMIN_PASSWORD'] }
   end
 end

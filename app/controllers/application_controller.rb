@@ -28,5 +28,8 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
-
+  
+  def authenticate
+    authenticate_with_http_basic { |user, password| user == ENV['ADMIN_USERNAME'] &&  password == ENV['ADMIN_PASSWORD'] }
+  end
 end

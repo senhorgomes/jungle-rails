@@ -28,5 +28,8 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
-
+  
+  def authenticate
+    http_basic_authenticate_with name: "dhh", password: "secret"
+  end
 end

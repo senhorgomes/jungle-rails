@@ -21,15 +21,10 @@ class Admin::CategoriesController < ApplicationController
 
   private
 
-  def product_params
-    params.require(:product).permit(
-      :name,
-      :description,
-      :category_id,
-      :quantity,
-      :image,
-      :price
+  def category_params
+    params.require(:category).permit(
+      :name
     )
   end
-  
+
 end

@@ -37,6 +37,29 @@ RSpec.describe User, type: :model do
       newUser2 = User.create(name: "Bob Miller", password: "qwerty", password_confirmation: "qwerty", email: "   KmInt@Email.com")
       expect(newUser2).not_to be_valid
     end
+  end
 
+  describe '.authenticate_with_credentials' do
+    it "newly created users can login" do
+      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: "kmint@email.com")
+      expect(User.authenticate_with_credentials("kmint@email.com", "qwerty")).to be_truthy
+    end
+
+    it "users must type in their password correctly" do
+      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: "kmint@email.com")
+      expect(User.authenticate_with_credentials("kmint@email.com", "qwerty")).to be_falsey
+    end
+
+    it "user can type email in the wrong case" do
+      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: "kmint@email.com")
+      
+      expect(User.authenticate_with_credentials("kMiNt@emaIL.com", "qwerty")).to be_truthy
+    end
+
+    it "user can type email in the wrong case and start with spaces" do
+      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: "kmint@email.com")
+      
+      expect(User.authenticate_with_credentials("     kMiNt@emaIL.com", "qwerty")).to be_truthy
+    end
   end
 end

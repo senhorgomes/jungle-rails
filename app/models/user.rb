@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   validates :password_digest, length: { minimum: 6}
   validates :email, presence: true
 
-  before_save :downcase_email
+  before_save :filtered_email
 
-  def downcase_email
-    self.email.downcase!
+  def filtered_email
+    self.email = self.email.strip.downcase!
   end
 end

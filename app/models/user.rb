@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :password, length: { minimum: 6}
 
-  before_save :filtered_email
+  before_create :filtered_email
 
   def self.authenticate_with_credentials(email, password)
     user = User.find_by_email(email.strip.downcase!)

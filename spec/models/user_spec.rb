@@ -33,8 +33,10 @@ RSpec.describe User, type: :model do
     end
 
     it "user cannot be created without an unique email" do
-      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: nil)
-      expect(newUser.errors.full_messages).to include("Email can't be blank")
+      newUser = User.create(name: "Kate Mint", password: "qwerty", password_confirmation: "qwerty", email: "kmint@email.com")
+      newUser2 = User.create(name: "Bob Miller", password: "qwerty", password_confirmation: "qwerty", email: "   KmInt@Email.com")
+      expect(newUser2).not_to be_valid
     end
+
   end
 end

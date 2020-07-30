@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # Routes for logging in
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   # Routes for creating new users
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

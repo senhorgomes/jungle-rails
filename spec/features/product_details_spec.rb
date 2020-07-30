@@ -5,7 +5,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   before :each do
     @category = Category.create! name: 'Apparel'
 
-    10.times do |n|
+    1.times do |n|
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
@@ -16,14 +16,14 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario "They see all products" do
+  scenario "They can see product description" do
     #ACT
     visit root_path
-
+    click_link "Details"
     #DEBUG
     save_screenshot
 
     #VERIFY
-    expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_css 'article.product-detail'
   end
 end

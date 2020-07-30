@@ -58,3 +58,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Web-console 2.0 no greater than 3.0
 
 ## Screenshots
+!["Screenshot of storefront](https://github.com/senhorgomes/jungle-rails/blob/master/docs/Screenshot1.png)
+!["Screenshot of sign up page"](https://github.com/senhorgomes/jungle-rails/blob/master/docs/Screenshot2.png)
+!["Screenshot of items in cart"](https://github.com/senhorgomes/jungle-rails/blob/master/docs/Screenshot3.png)

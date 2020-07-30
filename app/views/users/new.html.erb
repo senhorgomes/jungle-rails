@@ -3,11 +3,11 @@
   <hr class="my-4">
   <%= form_for :user, url: '/users' do |f| %>
     <div class="form-group">
-    Name: <%= f.text_field :name, placeholder: 'Please enter your first name and last name', class: 'form-control' %>
-    Email: <%= f.text_field :email, placeholder: 'name@example.com', class: 'form-control' %>
-    Password: <%= f.password_field :password, placeholder: 'Please enter a password', class: 'form-control' %>
-    Password Confirmation: <%= f.password_field :password_confirmation, placeholder: 'Please enter the same password', class: 'form-control' %>
-    <%= f.submit "Submit", class: 'btn btn-primary' %>
+      Name: <%= f.text_field :name, placeholder: 'Please enter your first name and last name', class: 'form-control' %>
+      Email: <%= f.text_field :email, placeholder: 'name@example.com', class: 'form-control' %>
+      Password: <%= f.password_field :password, placeholder: 'Please enter a password', class: 'form-control' %>
+      Password Confirmation: <%= f.password_field :password_confirmation, placeholder: 'Please enter the same password', class: 'form-control' %>
+      <%= f.submit "Submit", class: 'btn btn-success' %>
     </div>
   <% end %>
 </div>
